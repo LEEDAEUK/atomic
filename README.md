@@ -1,29 +1,4 @@
 # atomic
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### class를 어찌쓰느냐
+고유 속성은 atoms에 작성하지만, 위치등, 부모에서 필요한 속성은 부모에서 정하는게 좋을것같다
