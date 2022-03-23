@@ -1,5 +1,5 @@
 <template>
-  <v-btn class="btn">{{ propsButtonText }}</v-btn>
+  <v-btn class="btn" @click="onClick">{{ propsButtonText }}</v-btn>
 </template>
 
 <script>
@@ -8,6 +8,11 @@ export default {
     propsButtonText: {
       type: String,
       require: true,
+    },
+  },
+  methods: {
+    onClick() {
+      this.$emit('onClick');
     },
   },
 };

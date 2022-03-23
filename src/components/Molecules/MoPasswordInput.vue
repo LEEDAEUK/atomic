@@ -22,4 +22,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.password .label {
+  margin: 0 0 5px 0;
+}
+</style>

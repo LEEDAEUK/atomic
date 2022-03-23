@@ -1,12 +1,20 @@
 <template>
   <v-app>
+    <OrLoadingCard v-if="getLoadingStatus"></OrLoadingCard>
     <router-view />
   </v-app>
 </template>
 
 <script>
+import OrLoadingCard from './components/Organisms/OrLoadingCard.vue';
 export default {
+  components: { OrLoadingCard },
   name: 'App',
+  computed: {
+    getLoadingStatus() {
+      return this.$store.state.loadingStore.loadingStatus;
+    },
+  },
 
   data: () => ({
     //

@@ -14,4 +14,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.input {
+  background-color: white;
+  border-radius: 10px;
+  height: 40px;
+  padding: 5px;
+}
+</style>
