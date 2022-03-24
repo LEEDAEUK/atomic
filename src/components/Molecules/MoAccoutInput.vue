@@ -14,9 +14,8 @@ export default {
     value: String,
   },
   methods: {
-    inputText($event) {
-      console.log($event);
-      this.$emit('input', $event);
+    inputText(inputText) {
+      this.$emit('input', inputText);
     },
   },
 };

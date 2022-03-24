@@ -3,7 +3,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    console.log('im main');
+  },
+};
 </script>
 
 <style></style>

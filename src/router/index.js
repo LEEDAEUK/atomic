@@ -5,10 +5,10 @@ import store from '@/store/index';
 Vue.use(VueRouter);
 
 const routes = [
-  // {
-  //   path: '/',
-  //   redirect: '/login',
-  // },
+  {
+    path: '/',
+    redirect: '/main',
+  },
   {
     path: '*',
     component: () =>
@@ -39,6 +39,9 @@ router.beforeEach((to, from, next) => {
   if (to.meta.auth && !store.getters['userStore/IS_LOGINED']) {
     next('/login');
     //return 넣는것이 포인트, 그래야 아래 return을 실행하지 않는다
+    return;
+  } else if (to.path == '/login' && store.getters['userStore/IS_LOGINED']) {
+    next('/main');
     return;
   }
   next();
