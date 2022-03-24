@@ -1,5 +1,5 @@
 <template>
-  <div class="contents flex-r-c-c">
+  <div class="vi-login-page flex-r-c-c">
     <OrLoginCard></OrLoginCard>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style scoped>
-.contents {
+.vi-login-page {
   width: 100%;
   height: 100%;
 }

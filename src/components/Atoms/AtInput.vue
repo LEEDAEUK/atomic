@@ -1,6 +1,6 @@
 <template>
   <input
-    class="input"
+    class="at-input"
     :value="value"
     @input="$emit('input', $event.target.value)"
   />
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style>
-.input {
+.at-input {
   background-color: white;
   border-radius: 10px;
   height: 40px;

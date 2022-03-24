@@ -15,17 +15,20 @@ const store = new Vuex.Store({
   },
   plugins: [
     createPersistedState({
+      paths: ['userStore.token'],
       storage: {
         getItem: key => Cookies.get(key),
         setItem: (key, value) =>
           Cookies.set(key, value, {
             expires: new Date(new Date().getTime() + 1 * 60 * 1000),
             secure: true,
-          }), //7日間有効
+          }),
         removeItem: key => Cookies.remove(key),
       },
     }),
   ],
 });
+
+console.log(store);
 
 export default store;

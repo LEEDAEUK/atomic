@@ -1,5 +1,9 @@
 <template>
-  <v-progress-circular indeterminate color="primary"></v-progress-circular>
+  <v-progress-circular
+    class="at-loading-circle"
+    indeterminate
+    color="primary"
+  ></v-progress-circular>
 </template>
 
 <script>

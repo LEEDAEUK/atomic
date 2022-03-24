@@ -1,5 +1,5 @@
 <template>
-  <div class="password flex-c-x-x">
+  <div class="mo-password flex-c-x-x">
     <AtLabel propsText="password"></AtLabel>
     <AtInput :value="value" @input="inputText"></AtInput>
   </div>
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style>
-.password .label {
+.mo-password .at-label {
   margin: 0 0 5px 0;
 }
 </style>

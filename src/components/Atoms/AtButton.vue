@@ -1,6 +1,6 @@
 <template>
   <v-btn
-    class="btn"
+    class="at-button"
     @click="onClick"
     :color="propsButtonBackgroundColor"
     :class="`${propsButtonTextColor}--text`"
@@ -38,8 +38,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.btn {
-  width: 100%;
-}
-</style>
+<style scoped></style>

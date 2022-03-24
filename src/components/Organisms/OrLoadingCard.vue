@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-card flex-c-c-c">
+  <div class="or-loading-card flex-c-c-c">
     <AtLoadingCircle></AtLoadingCircle>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style>
-.loading-card {
+.or-loading-card {
   width: 100%;
   height: 100%;
   position: absolute;

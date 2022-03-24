@@ -1,5 +1,5 @@
 <template>
-  <div class="text-description">{{ propsText }}</div>
+  <div class="at-description">{{ propsText }}</div>
 </template>
 
 <script>

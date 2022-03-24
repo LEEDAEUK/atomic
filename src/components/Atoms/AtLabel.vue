@@ -1,5 +1,5 @@
 <template>
-  <div class="label">{{ propsText }}</div>
+  <div class="at-label">{{ propsText }}</div>
 </template>
 
 <script>

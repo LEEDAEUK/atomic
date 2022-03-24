@@ -1,22 +1,35 @@
 const userStore = {
   namespaced: true,
   state: {
-    userInfo: {},
+    username: '',
+    token: '',
   },
   getters: {
-    GET_USER_INFO: state => state.userInfo,
+    IS_LOGINED: state => (state.token == '' ? false : true),
   },
   mutations: {
     SET_USER_INFO: (state, payload) => {
-      state.userInfo = payload;
+      state.username = payload.username;
+      state.token = 'abc';
+    },
+    DELETE_TOKEN: state => {
+      state.token = '';
     },
   },
   actions: {
     async LOGIN({ commit }, payload) {
-      commit('SET_USER_INFO', payload);
       return new Promise(resolve => {
         setTimeout(() => {
-          resolve(false);
+          commit('SET_USER_INFO', payload);
+          resolve(true);
+        }, 3000);
+      });
+    },
+    async LOGOUT({ commit }) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          commit('DELETE_TOKEN');
+          resolve(true);
         }, 3000);
       });
     },

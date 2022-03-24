@@ -1,11 +1,15 @@
 <template>
-  <div class="at-title">{{ propsText }}</div>
+  <img
+    class="at-image"
+    :src="require(`@/assets/${propsImageName}`)"
+    alt="logo"
+  />
 </template>
 
 <script>
 export default {
   props: {
-    propsText: {
+    propsImageName: {
       type: String,
       require: true,
     },

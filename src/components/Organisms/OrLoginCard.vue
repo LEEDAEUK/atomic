@@ -1,5 +1,5 @@
 <template>
-  <div class="login-card flex-c-c-c">
+  <div class="or-login-card flex-c-c-c">
     <AtTitle propsText="Login"></AtTitle>
     <MoAccoutInput v-model="account"></MoAccoutInput>
     <MoPasswordInput v-model="password"></MoPasswordInput>
@@ -7,8 +7,8 @@
     <AtButton
       @onClick="userLogin"
       propsButtonText="Login"
-      propsButtonBackgroundColor="red"
-      propsButtonTextColor="blue"
+      propsButtonBackgroundColor="white"
+      propsButtonTextColor="black"
     ></AtButton>
   </div>
 </template>
@@ -59,6 +59,7 @@ export default {
           this.$store.dispatch('loadingStore/SET_LOADING_STATUS', {
             loadingStatus: false,
           });
+          this.$router.replace('/main');
         } else {
           console.log('result is false');
           this.errorMessage = '실패';
@@ -73,7 +74,7 @@ export default {
 </script>
 
 <style scoped>
-.login-card {
+.or-login-card {
   width: 80%;
   max-width: 300px;
   background-color: darkgray;
@@ -81,13 +82,13 @@ export default {
   border-radius: 10px;
 }
 
-.login-card .password,
-.login-card .account {
+.or-login-card .mo-password,
+.or-login-card .mo-account {
   width: 100%;
   margin: 10px 0 0 0;
 }
 
-.login-card .btn {
+.or-login-card .at-button {
   width: 100%;
 }
 </style>
