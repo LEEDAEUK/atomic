@@ -4,7 +4,12 @@
     <MoAccoutInput v-model="account"></MoAccoutInput>
     <MoPasswordInput v-model="password"></MoPasswordInput>
     <AtErrorMessage :propsText="errorMessage"></AtErrorMessage>
-    <AtButton @onClick="userLogin" propsButtonText="Login"></AtButton>
+    <AtButton
+      @onClick="userLogin"
+      propsButtonText="Login"
+      propsButtonBackgroundColor="red"
+      propsButtonTextColor="blue"
+    ></AtButton>
   </div>
 </template>
 
