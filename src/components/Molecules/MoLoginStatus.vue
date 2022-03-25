@@ -34,17 +34,8 @@ export default {
     },
     userJoin() {},
     async userLogout() {
-      this.$store.dispatch('loadingStore/SET_LOADING_STATUS', {
-        loadingStatus: true,
-      });
-      let result = await this.$store.dispatch('userStore/LOGOUT');
-      if (result == true) {
-        console.log('true');
-        this.$store.dispatch('loadingStore/SET_LOADING_STATUS', {
-          loadingStatus: false,
-        });
-        this.$router.push('/login');
-      }
+      await this.$store.commit('userStore/LOGOUT');
+      this.$router.push('/login');
     },
   },
 };

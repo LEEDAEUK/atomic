@@ -15,7 +15,7 @@ const userStore = {
       state.email = payload.email;
       state.token = payload.token;
     },
-    DELETE_TOKEN: state => {
+    LOGOUT: state => {
       state.token = '';
     },
   },
@@ -30,14 +30,6 @@ const userStore = {
       };
       commit('SET_USER_INFO', commitData);
       return data;
-    },
-    async LOGOUT({ commit }) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          commit('DELETE_TOKEN');
-          resolve(true);
-        }, 3000);
-      });
     },
   },
 };

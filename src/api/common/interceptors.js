@@ -1,20 +1,22 @@
 import store from '@/store/index';
 
-export function setInterceptors(instance, needToken) {
+function progressCircleSwitch(onOff) {
+  store.commit('loadingStore/SET_LOADING_STATUS', {
+    loadingStatus: onOff,
+  });
+}
+
+function setInterceptors(instance, needToken) {
   instance.interceptors.request.use(
     function (config) {
-      store.commit('loadingStore/SET_LOADING_STATUS', {
-        loadingStatus: true,
-      });
+      progressCircleSwitch(true);
       if (needToken) {
         config.headers.Authorization = store.state.userStore.token;
       }
       return config;
     },
     function (error) {
-      store.commit('loadingStore/SET_LOADING_STATUS', {
-        loadingStatus: false,
-      });
+      progressCircleSwitch(false);
       return Promise.reject(error);
     },
   );
@@ -22,18 +24,16 @@ export function setInterceptors(instance, needToken) {
   // Add a response interceptor
   instance.interceptors.response.use(
     function (response) {
-      store.commit('loadingStore/SET_LOADING_STATUS', {
-        loadingStatus: false,
-      });
+      progressCircleSwitch(false);
       return response;
     },
     function (error) {
-      store.commit('loadingStore/SET_LOADING_STATUS', {
-        loadingStatus: false,
-      });
+      progressCircleSwitch(false);
       return Promise.reject(error);
     },
   );
 
   return instance;
 }
+
+export { setInterceptors };

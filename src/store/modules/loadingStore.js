@@ -11,11 +11,6 @@ const loadingStore = {
       state.loadingStatus = payload.loadingStatus;
     },
   },
-  actions: {
-    async SET_LOADING_STATUS({ commit }, payload) {
-      commit('SET_LOADING_STATUS', payload);
-    },
-  },
 };
 
 export default loadingStore;
