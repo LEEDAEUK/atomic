@@ -6,9 +6,6 @@
 
 <script>
 export default {
-  created() {
-    console.log(this.propsText);
-  },
   props: {
     propsText: {
       type: String,

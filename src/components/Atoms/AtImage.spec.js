@@ -12,8 +12,7 @@ describe('AtImage.vue', () => {
     });
   });
 
-  test('이미지 컴포넌트의 src에 경로가 잘 들어가는지 확인 ', async () => {
-    console.log(wrapper.find('.at-image').attributes().src);
+  test('이미지 컴포넌트의 src에 경로가 잘 들어가는지 확인 ', () => {
     expect(wrapper.find('.at-image').attributes().src).toBe('icon.png');
   });
 });

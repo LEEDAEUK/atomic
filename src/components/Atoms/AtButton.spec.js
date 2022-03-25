@@ -15,17 +15,14 @@ describe('AtButton.vue', () => {
   });
 
   test('버튼 컴포넌트의 propsButtonText에 props가 잘 들어가는지 확인', () => {
-    console.log(wrapper.find('.at-button').text());
     expect(wrapper.find('.at-button').text()).toBe('Login');
   });
 
   test('버튼 컴포넌트의 propsButtonBackgroundColor에 props가 잘 들어가는지 확인', () => {
-    console.log(wrapper.find('.at-button').attributes().color);
     expect(wrapper.find('.at-button').attributes().color).toBe('white');
   });
 
   test('버튼 컴포넌트의 propsButtonTextColor에 props가 잘 들어가는지 확인', () => {
-    console.log(wrapper.find('.at-button').classes());
     expect(wrapper.find('.at-button').classes()).toContain('red--text');
   });
 });
