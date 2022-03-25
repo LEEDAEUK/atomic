@@ -1,12 +1,12 @@
 import store from '@/store/index';
 
-export function setInterceptors(instance, usingToken) {
+export function setInterceptors(instance, needToken) {
   instance.interceptors.request.use(
     function (config) {
       store.commit('loadingStore/SET_LOADING_STATUS', {
         loadingStatus: true,
       });
-      if (usingToken) {
+      if (needToken) {
         config.headers.Authorization = store.state.userStore.token;
       }
       return config;
