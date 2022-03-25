@@ -1,13 +1,19 @@
 <template>
-  <div class="at-error-message flex-r-c-c">{{ propsText }}</div>
+  <div class="at-error-message flex-r-c-c">
+    <div v-if="propsText != undefined && propsText != ''">{{ propsText }}</div>
+  </div>
 </template>
 
 <script>
 export default {
+  created() {
+    console.log(this.propsText);
+  },
   props: {
     propsText: {
       type: String,
       require: true,
+      default: 'エラーが発生しました',
     },
   },
 };
