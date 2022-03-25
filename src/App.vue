@@ -28,7 +28,6 @@ export default {
 </script>
 <style scoped>
 >>> .v-application--wrap {
-  /* 여기서 min-height를 해 줌으로써, vuetify v0application--wrap의 기본속성인 height 100vh를 없앨 수 있다. 이게 포인트 */
   min-height: auto;
   width: 100%;
   height: 100%;

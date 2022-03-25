@@ -45,27 +45,16 @@ export default {
         this.errorMessage = '패스워드를 입력해주세요';
       } else {
         this.errorMessage = '';
-        this.$store.dispatch('loadingStore/SET_LOADING_STATUS', {
-          loadingStatus: true,
-        });
-        let commitData = {
-          account: this.account,
-          password: this.password,
-        };
-        let result = await this.$store.dispatch('userStore/LOGIN', commitData);
-        if (result) {
-          console.log('result is true');
-          this.errorMessage = '성공';
-          this.$store.dispatch('loadingStore/SET_LOADING_STATUS', {
-            loadingStatus: false,
-          });
+        try {
+          const userData = {
+            email: this.account,
+            password: this.password,
+          };
+          await this.$store.dispatch('userStore/LOGIN', userData);
           this.$router.replace('/main');
-        } else {
-          console.log('result is false');
-          this.errorMessage = '실패';
-          this.$store.dispatch('loadingStore/SET_LOADING_STATUS', {
-            loadingStatus: false,
-          });
+        } catch (error) {
+          console.log(error.response.data);
+          this.errorMessage = error.response.data.error;
         }
       }
     },

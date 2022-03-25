@@ -1,7 +1,9 @@
+import { loginUser } from '@/api/auth';
+
 const userStore = {
   namespaced: true,
   state: {
-    username: '',
+    email: '',
     token: '',
   },
   getters: {
@@ -9,21 +11,25 @@ const userStore = {
   },
   mutations: {
     SET_USER_INFO: (state, payload) => {
-      state.username = payload.username;
-      state.token = 'abc';
+      console.log(payload);
+      state.email = payload.email;
+      state.token = payload.token;
     },
     DELETE_TOKEN: state => {
       state.token = '';
     },
   },
   actions: {
-    async LOGIN({ commit }, payload) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          commit('SET_USER_INFO', payload);
-          resolve(true);
-        }, 3000);
-      });
+    async LOGIN({ commit }, userData) {
+      console.log(userData);
+      const { data } = await loginUser(userData);
+      console.log(data);
+      let commitData = {
+        email: userData.email,
+        token: data.token,
+      };
+      commit('SET_USER_INFO', commitData);
+      return data;
     },
     async LOGOUT({ commit }) {
       return new Promise(resolve => {
