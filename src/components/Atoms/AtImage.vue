@@ -3,6 +3,7 @@
     class="at-image"
     :src="require(`@/assets/${propsImageName}`)"
     alt="logo"
+    @click="onClick"
   />
 </template>
 
@@ -12,6 +13,11 @@ export default {
     propsImageName: {
       type: String,
       require: true,
+    },
+  },
+  methods: {
+    onClick() {
+      this.$emit('onClick');
     },
   },
 };

@@ -1,14 +1,13 @@
 <template>
   <div class="vi-user-detail-page flex-c-x-x">
-    detail id : {{ this.$route.params }}
+    <OrUserDetailCard></OrUserDetailCard>
   </div>
 </template>
 
 <script>
+import OrUserDetailCard from '../components/Organisms/OrUserDetailCard.vue';
 export default {
-  created() {
-    console.log(this.$route.params);
-  },
+  components: { OrUserDetailCard },
 };
 </script>
 

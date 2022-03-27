@@ -36,7 +36,7 @@ export default {
 .mo-user-list-item {
   width: 100%;
   background-color: skyblue;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   min-height: 128px;
   padding: 10px;
   overflow: hidden;

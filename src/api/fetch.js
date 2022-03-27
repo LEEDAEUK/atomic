@@ -5,4 +5,9 @@ function fetchUserList() {
   return createInstance(false).get('/api/users?page=2');
 }
 
-export { fetchUserList };
+function fetchUser(id) {
+  // throw new Error('.');
+  return createInstance(false).get(`/api/users/${id}`);
+}
+
+export { fetchUserList, fetchUser };

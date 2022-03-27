@@ -1,6 +1,6 @@
 <template>
   <div class="or-header flex-r-sb-c">
-    <AtImage propsImageName="icon.png"></AtImage>
+    <AtImage propsImageName="icon.png" @onClick="toMain"></AtImage>
     <MoLoginStatus
       v-if="propsCurrentPageName != '/login' && propsCurrentPageName != '/'"
       :isLogined="isLogined"
@@ -19,6 +19,14 @@ export default {
     },
     isLogined() {
       return this.$store.state.userStore.token == '' ? false : true;
+    },
+  },
+  methods: {
+    toMain() {
+      console.log(this.$route);
+      if (this.$route.path != '/main' && this.$route.path != '/login') {
+        this.$router.push(this.isLogined == true ? '/main' : '/login');
+      }
     },
   },
   props: {
