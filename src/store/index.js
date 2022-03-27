@@ -20,7 +20,7 @@ const store = new Vuex.Store({
         getItem: key => Cookies.get(key),
         setItem: (key, value) =>
           Cookies.set(key, value, {
-            expires: new Date(new Date().getTime() + 1 * 60 * 1000),
+            expires: new Date(new Date().getTime() + 60 * 60 * 1000),
             secure: true,
           }),
         removeItem: key => Cookies.remove(key),

@@ -36,7 +36,7 @@ export default {
   align-items: center;
 }
 
-#app .or-header {
+/* #app .or-header {
   width: 100%;
-}
+} */
 </style>

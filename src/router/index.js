@@ -12,19 +12,28 @@ const routes = [
   {
     path: '*',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/NotFound.vue'),
+      import(/* webpackChunkName: "NotFound" */ '../views/NotFound.vue'),
   },
   {
     path: '/login',
     name: 'LoginPage',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/LoginPage.vue'),
+      import(/* webpackChunkName: "LoginPage" */ '../views/LoginPage.vue'),
   },
   {
     path: '/main',
     name: 'MainPage',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/MainPage.vue'),
+      import(/* webpackChunkName: "MainPage" */ '../views/MainPage.vue'),
+    meta: { auth: true },
+  },
+  {
+    path: '/user/:id',
+    name: 'UserDetailPage',
+    component: () =>
+      import(
+        /* webpackChunkName: "UserDetailPage" */ '../views/UserDetailPage.vue'
+      ),
     meta: { auth: true },
   },
 ];

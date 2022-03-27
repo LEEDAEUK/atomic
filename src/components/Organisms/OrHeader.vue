@@ -31,6 +31,7 @@ export default {
 
 <style>
 .or-header {
+  width: 100%;
   height: 70px;
   padding: 20px;
   background-color: beige;
