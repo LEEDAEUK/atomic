@@ -1,5 +1,6 @@
 <template>
   <div class="mo-login-status flex-r-x-x">
+    <AtButton @onClick="toGraph" propsButtonText="cytoscape"></AtButton>
     <AtButton
       @onClick="userLogin"
       v-if="!isLogined"
@@ -36,6 +37,11 @@ export default {
     async userLogout() {
       await this.$store.commit('userStore/LOGOUT');
       this.$router.push('/login');
+    },
+    toGraph() {
+      if (this.$route.path != '/graph') {
+        this.$router.push('/graph');
+      }
     },
   },
 };

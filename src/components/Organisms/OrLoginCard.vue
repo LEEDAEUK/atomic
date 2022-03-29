@@ -32,8 +32,8 @@ export default {
   },
   data() {
     return {
-      account: '',
-      password: '',
+      account: 'eve.holt@reqres.in',
+      password: 'cityslicka',
       errorMessage: '',
     };
   },
