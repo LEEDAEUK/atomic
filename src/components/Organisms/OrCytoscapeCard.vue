@@ -18,6 +18,7 @@
 
 <script>
 import klay from 'cytoscape-klay';
+import dagre from 'cytoscape-dagre';
 
 const generateNodes = ({ amount }) =>
   Array.from({ length: amount }).map((_, index) => ({
@@ -33,7 +34,7 @@ const generateEdgesFromNodes = nodes =>
     data: {
       id: `${node.data.id}-${index + 1}`,
       source: node.data.id,
-      target: `node-0`,
+      target: `node-1`,
     },
   }));
 
@@ -49,7 +50,9 @@ export default {
     elements() {
       const nodes = generateNodes({ amount: 10 });
       const edges = generateEdgesFromNodes(nodes);
-      return [...nodes, ...edges];
+      var a = [...nodes, ...edges];
+      console.log(a);
+      return a;
     },
     config() {
       return {
@@ -64,20 +67,30 @@ export default {
           },
         ],
         layout: {
-          name: 'klay',
+          name: 'dagre',
         },
       };
     },
   },
   methods: {
     preConfig(cytoscape) {
-      cytoscape.use(klay);
+      cytoscape.use(dagre);
     },
 
     async afterCreated(cy) {
       await this.$nextTick();
+      cy.on('tapstart mouseover', 'node', function (e) {
+        console.log(e);
+        console.log('in');
+      });
+      cy.on('tapend mouseout', 'node', function (e) {
+        console.log('out');
+      });
+      cy.on('tap', function (e) {
+        console.log('tap');
+      });
 
-      this.cyInstance.makeLayout({ name: 'klay' }).run();
+      this.cyInstance.makeLayout({ name: 'dagre' }).run();
     },
   },
 };
